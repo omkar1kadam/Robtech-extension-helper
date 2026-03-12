@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+
+<style>
+
+@page{
+    size:A4;
+    margin:12mm;
+}
+
+body{
+    margin:0;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size:13px;
+}
+
+.report{
+    width:186mm;
+    margin:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+td{
+    border:2px solid black;
+    padding:2px 6px;
+    vertical-align:middle;
+}
+
+/* HEADER */
+
+.header{
+    font-size:28px;
+    font-weight:bold;
+    text-align:center;
+    height:22mm;
+}
+
+.company{
+    font-size:13px;
+    font-weight:bold;
+    text-align:center;
+}
+
+/* UNIFORM ROW HEIGHT */
+
+.row td{
+    height:7mm;
+}
+
+/* SECTION CONTROL */
+
+.section{
+    margin-top:4mm;
+    page-break-inside: avoid;
+}
+
+/* DESCRIPTION */
+
+.workdesc-title{
+    text-align:center;
+    font-weight:bold;
+    height:7mm;
+}
+
+.workdesc{
+    height:24mm;
+}
+
+/* SIGNATURE */
+
+.signature{
+    font-weight:bold;
+    text-align:center;
+}
+
+/* PROGRAMMING ACTIVITIES */
+
+.activities{
+    width:55mm;
+    padding:0;
+}
+
+.activities-title{
+    font-size:14px;
+    font-weight:bold;
+    text-align:center;
+    border-bottom:2px solid black;
+    padding:4px;
+}
+
+.activities-list{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.activities-list td{
+    border-top:1px solid black;
+    border-left:0;
+    border-right:0;
+    border-bottom:0;
+    font-size:12px;
+    padding:3px 6px;
+}
+
+.label{
+    width:42mm;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="report">
+
+
+<!-- HEADER -->
+
+<table>
+
+<tr>
+<td class="header" style="width:130mm">
+SERVICE AND SUPPORT REPORT
+</td>
+
+<td class="company">
+COMPANY NAME AND ADDRESS
+</td>
+</tr>
+
+</table>
+
+
+<!-- CUSTOMER DETAILS -->
+
+<table>
+
+<tr class="row">
+<td class="label">Customer Name</td>
+<td>{{customerName}}</td>
+</tr>
+
+<tr class="row">
+<td>Project code</td>
+<td>{{projectCode}}</td>
+</tr>
+
+<tr class="row">
+<td>Location</td>
+<td>{{location}}</td>
+</tr>
+
+<tr class="row">
+<td>Customer Contact person</td>
+<td>{{contactPerson}}</td>
+</tr>
+
+<tr class="row">
+<td>Contact details</td>
+<td>{{contactDetails}}</td>
+</tr>
+
+</table>
+
+
+<!-- DAILY WORK BLOCKS -->
+
+{{#each days}}
+
+<div class="section">
+
+<table>
+
+<tr class="row">
+
+<td style="width:20mm">Date</td>
+<td style="width:40mm">{{date}}</td>
+
+<td style="width:25mm">In Time</td>
+<td style="width:30mm">{{inTime}}</td>
+
+<td style="width:25mm">Total Hrs :</td>
+<td style="width:20mm">{{totalHours}}</td>
+
+<td rowspan="4" class="activities">
+
+<div class="activities-title">
+Programming Activities
+</div>
+
+<table class="activities-list">
+
+<tr><td>☐ Backup Taken</td></tr>
+<tr><td>☐ New Program Creation</td></tr>
+<tr><td>☐ Program Modification</td></tr>
+<tr><td>☐ Program check in T1</td></tr>
+<tr><td>☐ Program check in T2</td></tr>
+<tr><td>☐ Dry run Check</td></tr>
+<tr><td>☐ Safety Check</td></tr>
+<tr><td>☐ Robot Zoning Check</td></tr>
+<tr><td>☐ Line Given to Production</td></tr>
+
+</table>
+
+</td>
+
+</tr>
+
+
+<tr class="row">
+
+<td>Day</td>
+<td>{{day}}</td>
+
+<td>Out Time</td>
+<td>{{outTime}}</td>
+
+<td colspan="2"></td>
+
+</tr>
+
+
+<tr>
+
+<td colspan="6" class="workdesc-title">
+Work Description
+</td>
+
+</tr>
+
+
+<tr>
+
+<td colspan="6" class="workdesc">
+{{description}}
+</td>
+
+</tr>
+
+
+<!-- SIGNATURE BOX -->
+
+<tr class="row">
+
+<td colspan="3" class="signature">
+Customer Signature
+</td>
+
+<td colspan="4"></td>
+
+</tr>
+
+</table>
+
+</div>
+
+{{/each}}
+
+</div>
+
+</body>
+</html>
