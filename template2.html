@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<style>
+
+@page {
+    size: A4;
+    margin: 15mm;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    margin: 0;
+}
+
+/* 🔥 BRANCH BOX */
+
+.branch-box {
+    border: 2px solid black;
+    padding: 14px 18px;
+    margin-bottom: 12mm;
+    border-radius: 6px;
+}
+
+/* LABEL ROW */
+
+.branch-row {
+    margin-bottom: 6px;
+}
+
+.label {
+    font-weight: bold;
+    display: inline-block;
+    width: 120px;
+}
+
+.value {
+    display: inline-block;
+}
+
+/* 👥 SECTION TITLE */
+
+.section-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 6mm;
+}
+
+/* 📊 TABLE */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 6px;
+    text-align: left;
+}
+
+th {
+    background: #f2f2f2;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- 🔥 BRANCH HEADER BOX -->
+<div class="branch-box">
+
+    <div class="branch-row">
+        <span class="label">Branch Name :</span>
+        <span class="value">{{branchName}}</span>
+    </div>
+
+    <div class="branch-row">
+        <span class="label">Location :</span>
+        <span class="value">{{location}}</span>
+    </div>
+
+</div>
+
+<!-- 👥 EMPLOYEE LIST -->
+<div class="section-title">Employee List</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {{#each employees}}
+        <tr>
+            <td>{{username}}</td>
+            <td>{{email}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+</body>
+</html>
